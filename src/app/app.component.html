@@ -1,7 +1,7 @@
 <!-- * * * * * * * * * * * * *Ale Alejandre * * * * * * * * * * * * * * * * * * -->
 
 <!-- Componnete Boostrap-->
-<div class="card">
+<!--div class="card">
   <div class="card-header">
   <h1>Bienvenido: {{usuario.nombre}}   {{usuario.apellido}}</h1>
   <h2>Nacionalidad:{{usuario.nacionalidad}}</h2>
@@ -23,8 +23,11 @@
   </ul>
 
 </div>
-
+-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
 <router-outlet></router-outlet>
+<app-crear-usuario (setUsuario)="recibirUsuario($event)"></app-crear-usuario>
+
+  

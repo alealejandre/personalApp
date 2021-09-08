@@ -1,1 +1,23 @@
 <p>listar-usuario works!</p>
+<table>
+    <thead>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Apellido Edad</th>
+        <th>Activo</th>
+        <th>Fecha de registro</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of listaUsuarios">
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.appPaterno}}</td>
+            <td>{{usuario.appMaterno}}</td>
+            <td>{{usuario.edad}}</td>
+            <td>{{usuario.activo}}</td>
+            <td>{{usuario.feReg | date }}</td>            
+        </tr>
+        <td></td>
+
+    </tbody>
+</table>

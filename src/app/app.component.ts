@@ -7,6 +7,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit{
+ 
+ 
   title = 'angular-app';
   usuario:any;
   lista_roles:any[]
@@ -26,11 +28,10 @@ export class AppComponent implements OnInit, AfterViewInit{
         apellido:'Alejandre',
         nacionalidad:'Mexicana',
     };
-  
-    //Se clona el Objeto pero no hay relación entre los mismos
+    
     let usuario_temp=JSON.parse(JSON.stringify(this.usuario));
     console.log('Constructor', this.usuario);
-    //alt+shift+f
+    
   }
   ngOnInit(){
     this.usuario.nombre='Alexis';
@@ -51,5 +52,8 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
   addRol(rol:String){
     this.lista_roles.push(rol);
+  }
+  recibirUsuario(usuario:any){
+      console.log(usuario)
   }
 }
