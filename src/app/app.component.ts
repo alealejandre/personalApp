@@ -1,5 +1,7 @@
 import { Component, OnInit,AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { Usuario } from './interfaces/usuario';
 
 @Component({
   selector: 'app-root',
@@ -8,52 +10,35 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 })
 export class AppComponent implements OnInit, AfterViewInit{
  
+ listaUsuarios:Usuario[]
+
+  constructor(private ngbModal:NgbModal){
+    this.listaUsuarios=[]
+  }
  
-  title = 'angular-app';
-  usuario:any;
-  lista_roles:any[]
-  @ViewChild("div_body", {static:true}) body:ElementRef;
-
-  constructor(elementRef:ElementRef){
-    this.body = elementRef;
-    this.lista_roles=[]
-        this.addRol("Administrador");
-        this.addRol("Certificador");
-        this.addRol("Operador");
-        this.addRol("Cliente");
-        console.log("this.listaRoles", this.lista_roles)
-    
-  this.usuario ={
-        nombre:'Ale',
-        apellido:'Alejandre',
-        nacionalidad:'Mexicana',
-    };
-    
-    let usuario_temp=JSON.parse(JSON.stringify(this.usuario));
-    console.log('Constructor', this.usuario);
-    
-  }
-  ngOnInit(){
-    this.usuario.nombre='Alexis';
-    console.log('OnInit', this.usuario);
-  }
-
-  ngAfterViewInit(){
-    this.usuario.nombre='Aalejandre';
-    console.log('AfterViewInit', this.usuario);
-  }
-
-  ngOnDestroy(){
-    console.log('OnDestroy', this.usuario);
-  }
-  
-  imprimirUsuario(){
-    alert(this.usuario.nombre)
-  }
-  addRol(rol:String){
-    this.lista_roles.push(rol);
-  }
   recibirUsuario(usuario:any){
+      this.listaUsuarios.push(usuario);
       console.log(usuario)
   }
+  ngOnInit(){
+
+  }
+  ngAfterViewInit(){
+
+  }
+  ngOnDestroy(){
+
+  }
+  mostrarModalNuevoUsuario(modalNuevoUsuario:any){    
+    this.ngbModal.open(modalNuevoUsuario, {
+      centered:true,
+      size:"lg",
+      scrollable:true,
+      backdrop:'static'
+    }).result.then(
+      (result)=>{}, 
+      (reason)=>{}
+    )
+  }
 }
+

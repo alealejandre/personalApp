@@ -33,6 +33,7 @@ nuevoUsuario:Usuario;
     usuarioRegistro.activo = true;
     this.setUsuario.emit(this.nuevoUsuario)
     alert("Usuario registrado")
+    this.limpiarCampos()
   }
   limpiarCampos(){
     this.nuevoUsuario={}
